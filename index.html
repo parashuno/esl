@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebook Page Generator | Siva Prasad Mukherjee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        .font-bengali { font-family: 'Noto Sans Bengali', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        .tab-active { background-color: white; color: #0A2A66; border-bottom-color: transparent; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-[#0A2A66] text-white p-4 text-center shadow-lg sticky top-0 z-20">
+        <h1 class="text-2xl font-bold">Ebook Page Generator</h1>
+        <p class="text-sm text-gray-300">Fill the form for your ebook, preview live, and copy the generated HTML code.</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+        <div class="col-span-1 p-6 md:p-8 overflow-y-auto" style="height: calc(100vh - 72px);">
+            <form id="product-form" class="space-y-6">
+                
+                <section>
+                    <h2 class="text-xl font-bold text-[#0A2A66] border-b-2 border-[#AED581] pb-2 mb-4">General Settings</h2>
+                    <div>
+                        <label for="whatsapp-number" class="block text-sm font-semibold text-gray-700">WhatsApp Number</label>
+                        <input type="text" id="whatsapp-number" value="8801712345678" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm">
+                        <p class="text-xs text-gray-500 mt-1">Include country code, no "+" or spaces (e.g., 8801712345678).</p>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2 class="text-xl font-bold text-[#0A2A66] border-b-2 border-[#AED581] pb-2 mb-4">Header Tagline</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="tagline-en" class="block text-sm font-semibold text-gray-700">Tagline (English)</label>
+                            <input type="text" id="tagline-en" value="Your Trusted Source for Quality Ebooks" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm">
+                        </div>
+                        <div>
+                            <label for="tagline-bn" class="block text-sm font-semibold text-gray-700 font-bengali">ট্যাগলাইন (বাংলা)</label>
+                            <input type="text" id="tagline-bn" value="গুণগত মানের ইবুকের জন্য আপনার বিশ্বস্ত উৎস" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm font-bengali">
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-[#0A2A66] border-b-2 border-[#AED581] pb-2 mb-4">Buy Now Button</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="button-text-en" class="block text-sm font-semibold text-gray-700">Button Text (English)</label>
+                            <input type="text" id="button-text-en" value="Get Ebook Now" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm">
+                        </div>
+                        <div>
+                            <label for="button-text-bn" class="block text-sm font-semibold text-gray-700 font-bengali">বোতাম টেক্সট (বাংলা)</label>
+                            <input type="text" id="button-text-bn" value="ইবুকটি এখন কিনুন" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm font-bengali">
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-[#0A2A66] border-b-2 border-[#AED581] pb-2 mb-4">Ebook Details</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="product-name-en" class="block text-sm font-semibold text-gray-700">Ebook Title (English)</label>
+                            <input type="text" id="product-name-en" value="The Ultimate Digital Marketing Guide" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm">
+                        </div>
+                        <div>
+                            <label for="product-name-bn" class="block text-sm font-semibold text-gray-700 font-bengali">ইবুকের নাম (বাংলা)</label>
+                            <input type="text" id="product-name-bn" value="ডিজিটাল মার্কেটিং চূড়ান্ত গাইড" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm font-bengali">
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-[#0A2A66] border-b-2 border-[#AED581] pb-2 mb-4">Pricing</h2>
+                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div><label for="offer-price" class="block text-sm font-semibold text-gray-700">Offer Price</label><input type="text" id="offer-price" value="৳250" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm"></div>
+                        <div><label for="original-price" class="block text-sm font-semibold text-gray-700">Original Price</label><input type="text" id="original-price" value="৳500" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm"></div>
+                     </div>
+                </section>
+                
+                <section>
+                    <h2 class="text-xl font-bold text-[#0A2A66] border-b-2 border-[#AED581] pb-2 mb-4">Ebook Cover Image</h2>
+                    <div>
+                        <label for="main-image" class="block text-sm font-semibold text-gray-700">Cover Image URL</label>
+                        <input type="text" id="main-image" value="https://images.unsplash.com/photo-1544716278-e513176f20b5?q=80&w=1974&auto=format&fit=crop" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm">
+                        <p class="text-xs text-gray-500 mt-1">Recommended aspect ratio: 9:16 (e.g., 1080x1920 pixels). A vertical book cover works best.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-[#0A2A66] border-b-2 border-[#AED581] pb-2 mb-4">Features (Bullet Points)</h2>
+                    <div id="features-list" class="space-y-2"></div>
+                    <button type="button" id="add-feature" class="mt-2 text-sm text-[#0A2A66] font-semibold hover:underline">+ Add Feature</button>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-[#0A2A66] border-b-2 border-[#AED581] pb-2 mb-4">Delivery Method</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="delivery-header-en" class="block text-sm font-semibold text-gray-700">Header (English)</label>
+                            <input type="text" id="delivery-header-en" value="How You'll Get The Ebook" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm">
+                        </div>
+                        <div>
+                            <label for="delivery-header-bn" class="block text-sm font-semibold text-gray-700 font-bengali">শিরোনাম (বাংলা)</label>
+                            <input type="text" id="delivery-header-bn" value="যেভাবে ইবুকটি পাবেন" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm font-bengali">
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                         <div>
+                            <label for="delivery-desc-en" class="block text-sm font-semibold text-gray-700">Description (English)</label>
+                            <textarea id="delivery-desc-en" rows="3" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm">After payment confirmation, the ebook PDF file will be sent to your WhatsApp or Email instantly.</textarea>
+                        </div>
+                        <div>
+                            <label for="delivery-desc-bn" class="block text-sm font-semibold text-gray-700 font-bengali">বিবরণ (বাংলা)</label>
+                            <textarea id="delivery-desc-bn" rows="3" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm font-bengali">পেমেন্ট নিশ্চিত করার পর, ইবুকটির পিডিএফ ফাইল তাৎক্ষণিকভাবে আপনার হোয়াটসঅ্যাপ বা ইমেইলে পাঠানো হবে।</textarea>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="space-y-4 p-4 border border-gray-200 rounded-lg bg-white">
+                    <h3 class="text-lg font-semibold text-gray-800">Description Section</h3>
+                    <div><label for="desc-title" class="block text-sm font-semibold text-gray-700">Section Title</label><input type="text" id="desc-title" value="Ebook Description / ইবুকের বিবরণ" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm"></div>
+                    <div><label for="desc-en" class="block text-sm font-semibold text-gray-700">Content (English)</label><textarea id="desc-en" rows="4" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm">This comprehensive guide covers everything from SEO to social media marketing. Perfect for beginners and experts alike who want to master the digital landscape and grow their business online.</textarea></div>
+                    <div><label for="desc-bn" class="block text-sm font-semibold text-gray-700 font-bengali">বিষয়বস্তু (বাংলা)</label><textarea id="desc-bn" rows="4" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm font-bengali">এই বিস্তৃত গাইডটি এসইও থেকে শুরু করে সোশ্যাল মিডিয়া মার্কেটিং পর্যন্ত সবকিছু কভার করে। যারা ডিজিটাল জগতে দক্ষতা অর্জন করতে এবং অনলাইনে তাদের ব্যবসা বাড়াতে চান তাদের জন্য উপযুক্ত।</textarea></div>
+                </section>
+
+                <section class="space-y-4 p-4 border border-gray-200 rounded-lg bg-white">
+                    <h3 class="text-lg font-semibold text-gray-800">Refund Policy Section</h3>
+                    <div><label for="return-title" class="block text-sm font-semibold text-gray-700">Section Title</label><input type="text" id="return-title" value="Refund Policy / রিফান্ড পলিসি" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm"></div>
+                    <div><label for="return-en" class="block text-sm font-semibold text-gray-700">Content (English)</label><textarea id="return-en" rows="3" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm">Due to the digital nature of this product, all sales are final. No refunds will be issued once the ebook has been delivered. Please review the details before purchasing.</textarea></div>
+                    <div><label for="return-bn" class="block text-sm font-semibold text-gray-700 font-bengali">বিষয়বস্তু (বাংলা)</label><textarea id="return-bn" rows="3" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm font-bengali">যেহেতু এটি একটি ডিজিটাল পণ্য, তাই সমস্ত বিক্রয় চূড়ান্ত। ইবুক বিতরণ হয়ে গেলে কোনো রিফান্ড প্রদান করা হবে না। কেনার আগে অনুগ্রহ করে বিবরণ পর্যালোচনা করুন।</textarea></div>
+                </section>
+            </form>
+        </div>
+        
+        <div class="col-span-1 md:sticky top-[72px]" style="height: calc(100vh - 72px);">
+            <div class="h-full flex flex-col"><div class="flex border-b border-gray-300 bg-gray-200"><button id="preview-tab-btn" class="py-2 px-4 font-semibold border-b-2 tab-active">Live Preview</button><button id="code-tab-btn" class="py-2 px-4 font-semibold text-gray-600">HTML Code</button></div><div class="flex-grow bg-white relative"><div id="preview-panel" class="w-full h-full"><iframe id="preview-frame" class="w-full h-full border-none"></iframe></div><div id="code-panel" class="hidden w-full h-full flex flex-col"><pre class="flex-grow w-full h-0 p-4 overflow-auto bg-gray-800 text-white text-sm font-mono"><code id="code-output"></code></pre><button id="copy-code-btn" class="w-full bg-[#AED581] text-[#0A2A66] font-bold py-3 px-4 hover:bg-[#9CCC65] transition duration-300 text-lg">Copy Code</button></div></div></div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('product-form');
+    const previewFrame = document.getElementById('preview-frame');
+    const codeOutput = document.getElementById('code-output');
+    const copyCodeBtn = document.getElementById('copy-code-btn');
+    const featuresList = document.getElementById('features-list');
+    const addFeatureBtn = document.getElementById('add-feature');
+    const previewTabBtn = document.getElementById('preview-tab-btn');
+    const codeTabBtn = document.getElementById('code-tab-btn');
+    const previewPanel = document.getElementById('preview-panel');
+    const codePanel = document.getElementById('code-panel');
+
+    const initialFeatures = [ { en: 'Instant Download via Email/WhatsApp', bn: 'ইমেইল/হোয়াটসঅ্যাপে তাৎক্ষণিক ডাউনলোড' }, { en: 'High-Quality PDF Format', bn: 'উচ্চ-মানের পিডিএফ ফরম্যাট' } ];
+
+    function addFeature(en = '', bn = '') {
+        const featureDiv = document.createElement('div');
+        featureDiv.className = 'grid grid-cols-11 gap-2 items-center';
+        featureDiv.innerHTML = `<input type="text" placeholder="English Feature" value="${en}" class="feature-en col-span-5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md text-sm shadow-sm"><input type="text" placeholder="Bengali Feature" value="${bn}" class="feature-bn col-span-5 block w-full px-2 py-1 bg-white border border-gray-300 rounded-md text-sm shadow-sm font-bengali"><button type="button" class="remove-feature col-span-1 text-red-500 hover:text-red-700 font-bold text-lg">&times;</button>`;
+        featuresList.appendChild(featureDiv);
+        featureDiv.querySelector('.remove-feature').addEventListener('click', () => { featureDiv.remove(); updateContent(); });
+    }
+
+    const getFormData = () => {
+        const features = Array.from(featuresList.querySelectorAll('.grid')).map(div => ({ en: div.querySelector('.feature-en').value.trim(), bn: div.querySelector('.feature-bn').value.trim() })).filter(f => f.en || f.bn);
+        const formatContent = (id) => document.getElementById(id).value.trim().replace(/\n/g, '<br>');
+
+        return {
+            whatsappNumber: document.getElementById('whatsapp-number').value.trim(),
+            taglineEn: document.getElementById('tagline-en').value.trim(),
+            taglineBn: document.getElementById('tagline-bn').value.trim(),
+            buttonTextEn: document.getElementById('button-text-en').value.trim(),
+            buttonTextBn: document.getElementById('button-text-bn').value.trim(),
+            productNameEn: document.getElementById('product-name-en').value.trim(),
+            productNameBn: document.getElementById('product-name-bn').value.trim(),
+            offerPrice: document.getElementById('offer-price').value.trim(),
+            originalPrice: document.getElementById('original-price').value.trim(),
+            mainImage: document.getElementById('main-image').value.trim(),
+            features: features,
+            deliveryHeaderEn: document.getElementById('delivery-header-en').value.trim(),
+            deliveryHeaderBn: document.getElementById('delivery-header-bn').value.trim(),
+            deliveryDescEn: formatContent('delivery-desc-en'),
+            deliveryDescBn: formatContent('delivery-desc-bn'),
+            descTitle: document.getElementById('desc-title').value.trim(),
+            descEn: formatContent('desc-en'),
+            descBn: formatContent('desc-bn'),
+            returnTitle: document.getElementById('return-title').value.trim(),
+            returnEn: formatContent('return-en'),
+            returnBn: formatContent('return-bn'),
+        };
+    };
+
+    const generateHtmlTemplate = (data) => {
+        const featuresHtml = data.features.map(f => `            <li>${(f.en && f.bn) ? `${f.en} <span class="font-bengali">/ ${f.bn}</span>` : f.en || `<span class="font-bengali">${f.bn}</span>`}</li>`).join('\n');
+        
+        const taglineHtml = (data.taglineEn && data.taglineBn) ? `${data.taglineEn} <span class="font-bengali">/ ${data.taglineBn}</span>` : data.taglineEn || `<span class="font-bengali">${data.taglineBn}</span>`;
+
+        const deliveryInfoHtml = (() => {
+            const hasHeader = data.deliveryHeaderEn || data.deliveryHeaderBn;
+            const hasDesc = data.deliveryDescEn || data.deliveryDescBn;
+            if (!hasHeader && !hasDesc) return '';
+
+            const header = (data.deliveryHeaderEn && data.deliveryHeaderBn) ? `${data.deliveryHeaderEn} <span class="font-bengali">/ ${data.deliveryHeaderBn}</span>` : data.deliveryHeaderEn || `<span class="font-bengali">${data.deliveryHeaderBn || ''}</span>`;
+            
+            let description = '';
+            if (data.deliveryDescEn) description += `<p class="text-sm text-gray-600">${data.deliveryDescEn}</p>`;
+            if (data.deliveryDescBn) description += `<p class="font-bengali text-sm text-gray-600">${data.deliveryDescBn}</p>`;
+
+            return `
+        <div class="delivery-info mt-6 mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <h4 class="font-semibold text-gray-800 mb-2">${header}</h4>
+            <div class="space-y-1">${description}</div>
+        </div>`;
+        })();
+        
+        const createSection = (title, contentEn, contentBn) => {
+            if (!title && !contentEn && !contentBn) return '';
+            return `
+    <div class="info-section mt-8 p-6 md:p-8 bg-gray-100 rounded-xl">
+        <h3 class="text-2xl font-bold text-[#0A2A66] mb-4">${title}</h3>
+        <div class="space-y-4 text-gray-600">${contentEn ? `<p>${contentEn}</p>` : ''}${contentBn ? `<p class="font-bengali">${contentBn}</p>` : ''}</div>
+    </div>`;
+        };
+        
+        const descriptionSectionHtml = createSection(data.descTitle, data.descEn, data.descBn);
+        const returnSectionHtml = createSection(data.returnTitle, data.returnEn, data.returnBn);
+        
+        let buttonHtml = data.buttonTextEn || '';
+        if (data.buttonTextBn) {
+            buttonHtml += `<span class="block font-bengali text-base">${data.buttonTextBn}</span>`;
+        }
+        if (!buttonHtml) {
+            buttonHtml = 'Get Ebook Now'; // Fallback
+        }
+        
+        const whatsappMessage = `Hello, I'm interested in buying the ebook "${data.productNameEn}". Could you please provide the payment details?`;
+        const whatsappLink = `https://wa.me/${data.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+        
+        return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${data.productNameEn || 'Ebook Page'} | Siva Prasad Mukherjee</title>
+  <script src="https://cdn.tailwindcss.com"><\/script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+  <style> body { font-family: 'Montserrat', sans-serif; } .font-bengali { font-family: 'Noto Sans Bengali', sans-serif; } </style>
+</head>
+<body class="bg-white text-gray-800">
+  <header class="bg-[#0A2A66] text-white p-6 text-center shadow-md">
+    <h1 class="text-3xl md:text-4xl font-bold">Siva Prasad Mukherjee</h1>
+    <p class="text-md text-gray-300">${taglineHtml}</p>
+  </header>
+  <main class="container mx-auto p-4 md:p-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+      <div class="product-gallery flex justify-center items-start">
+        <div class="w-full max-w-sm">
+            <img src="${data.mainImage}" alt="${data.productNameEn}" class="w-full h-auto object-contain rounded-xl shadow-lg border">
+        </div>
+      </div>
+      <div class="product-info flex flex-col">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#0A2A66]">${data.productNameEn}<br><span class="font-bengali text-2xl md:text-3xl">${data.productNameBn}</span></h2>
+        <p class="text-gray-500 mt-2">by Siva Prasad Mukherjee</p>
+        <hr class="my-4">
+        <div class="price mb-4 space-y-2">
+            <div><span class="text-gray-600 text-sm font-semibold">Offer Price <span class="font-bengali">/ অফার মূল্য</span>:</span> <span class="text-3xl font-bold text-red-600">${data.offerPrice}</span></div>
+            <div><span class="text-gray-500 text-sm">Original Price <span class="font-bengali">/ আসল মূল্য</span>:</span> <span class="text-xl text-gray-500 line-through">${data.originalPrice}</span></div>
+            <p class="text-gray-600 text-sm pt-1">Inclusive of all taxes / সকল ট্যাক্স অন্তর্ভুক্ত</p>
+        </div>
+        <div class="features mb-6"><ul class="space-y-2 text-gray-700 list-disc list-inside">${featuresHtml}</ul></div>
+        ${deliveryInfoHtml}
+        <div class="mt-auto pt-4">
+            <a href="${whatsappLink}" target="_blank" class="block w-full bg-[#AED581] text-[#0A2A66] text-center font-semibold py-4 px-6 rounded-xl hover:bg-[#9CCC65] transition text-lg">${buttonHtml}</a>
+            <p class="text-center text-sm text-gray-500 mt-3">Clicking the button will open WhatsApp.</p>
+        </div>
+      </div>
+    </div>${descriptionSectionHtml}${returnSectionHtml}
+  </main>
+  <footer class="bg-gray-100 text-center text-sm text-gray-600 py-6 mt-12">
+    <p>Copyright &copy; <script>document.write(new Date().getFullYear())<\/script> Siva Prasad Mukherjee. All Rights Reserved.</p>
+<p class="mt-2">
+  <a href="#" class="hover:text-[#0A2A66]" onclick="openPopup('cookie-policy.html'); return false;">Cookie Policy</a> |
+  <a href="#" class="hover:text-[#0A2A66]" onclick="openPopup('terms-conditions.html'); return false;">Terms & Conditions</a> |
+  <a href="#" class="hover:text-[#0A2A66]" onclick="openPopup('privacy-policy.html'); return false;">Privacy Policy</a>
+</p>
+<script>
+  function openPopup(url) {
+    window.open(
+      url,
+      '_blank',
+      'width=600,height=600,resizable=yes,scrollbars=yes'
+    );
+    return false; // Optional: prevents the default anchor behavior
+  }
+</script>
+  </footer>
+</body>
+</html>`;
+    };
+    
+    const updateContent = () => { const data = getFormData(); const htmlContent = generateHtmlTemplate(data); previewFrame.srcdoc = htmlContent; codeOutput.textContent = htmlContent; };
+    form.addEventListener('input', updateContent);
+    addFeatureBtn.addEventListener('click', () => addFeature());
+    copyCodeBtn.addEventListener('click', () => { navigator.clipboard.writeText(codeOutput.textContent).then(() => { const originalText = copyCodeBtn.textContent; copyCodeBtn.textContent = 'Copied!'; setTimeout(() => { copyCodeBtn.textContent = originalText; }, 2000); }); });
+    previewTabBtn.addEventListener('click', () => { previewTabBtn.classList.add('tab-active'); codeTabBtn.classList.remove('tab-active'); previewPanel.classList.remove('hidden'); codePanel.classList.add('hidden'); });
+    codeTabBtn.addEventListener('click', () => { codeTabBtn.classList.add('tab-active'); previewTabBtn.classList.remove('tab-active'); codePanel.classList.remove('hidden'); previewPanel.classList.add('hidden'); });
+    initialFeatures.forEach(f => addFeature(f.en, f.bn));
+    updateContent();
+});
+</script>
+
+</body>
+</html>
